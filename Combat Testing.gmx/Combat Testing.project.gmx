@@ -72,10 +72,12 @@
     <object>objects\obj_barrel</object>
     <object>objects\obj_barrelB</object>
     <object>objects\obj_wizard</object>
+    <object>objects\obj_testEnemy</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_tavern</room>
     <room>rooms\rm_testgame</room>
+    <room>rooms\rm_test_enemyAI</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
