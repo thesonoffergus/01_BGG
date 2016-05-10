@@ -27,7 +27,10 @@
     <sprite>sprites\spr_candle</sprite>
     <sprite>sprites\spr_crate</sprite>
     <sprite>sprites\spr_barrel</sprite>
+    <sprite>sprites\spr_barrelB</sprite>
     <sprite>sprites\spr_wizard</sprite>
+    <sprite>sprites\sprite18</sprite>
+    <sprite>sprites\sprite20</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bkg_1</background>
@@ -66,7 +69,8 @@
     <object>objects\obj_lighting</object>
     <object>objects\obj_candle</object>
     <object>objects\obj_crate</object>
-    <object>objects\obj_barell</object>
+    <object>objects\obj_barrel</object>
+    <object>objects\obj_barrelB</object>
     <object>objects\obj_wizard</object>
   </objects>
   <rooms name="rooms">
