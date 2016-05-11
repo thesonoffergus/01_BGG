@@ -32,6 +32,10 @@
     <sprite>sprites\spr_wizard</sprite>
     <sprite>sprites\sprite18</sprite>
     <sprite>sprites\sprite20</sprite>
+    <sprite>sprites\sprite21</sprite>
+    <sprite>sprites\spr_book1</sprite>
+    <sprite>sprites\spr_book2</sprite>
+    <sprite>sprites\spr_book3</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bkg_1</background>
@@ -75,6 +79,7 @@
     <object>objects\obj_barrelB</object>
     <object>objects\obj_wizard</object>
     <object>objects\obj_testEnemy</object>
+    <object>objects\obj_book1</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_tavern</room>
