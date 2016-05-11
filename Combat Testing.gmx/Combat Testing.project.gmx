@@ -26,6 +26,7 @@
     <sprite>sprites\spr_table</sprite>
     <sprite>sprites\spr_candle</sprite>
     <sprite>sprites\spr_crate</sprite>
+    <sprite>sprites\spr_crateB</sprite>
     <sprite>sprites\spr_barrel</sprite>
     <sprite>sprites\spr_barrelB</sprite>
     <sprite>sprites\spr_wizard</sprite>
@@ -69,6 +70,7 @@
     <object>objects\obj_lighting</object>
     <object>objects\obj_candle</object>
     <object>objects\obj_crate</object>
+    <object>objects\obj_crateB</object>
     <object>objects\obj_barrel</object>
     <object>objects\obj_barrelB</object>
     <object>objects\obj_wizard</object>
