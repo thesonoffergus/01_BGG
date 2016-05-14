@@ -46,16 +46,15 @@
   <scripts name="scripts">
     <script>scripts\scr_healthbar.gml</script>
     <script>scripts\scr_manabar.gml</script>
-    <script>scripts\scr_mpregen.gml</script>
     <script>scripts\scr_lighting.gml</script>
     <script>scripts\scr_shadow.gml</script>
+    <script>scripts\scr_mpregen.gml</script>
     <script>scripts\scr_handleIncomingPackets.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_1</font>
   </fonts>
   <objects name="objects">
-    <object>objects\obj_healthbar</object>
     <objects name="hero2">
       <object>objects\obj_fireball2</object>
       <object>objects\obj_hero2</object>
@@ -64,23 +63,30 @@
       <object>objects\obj_hero</object>
       <object>objects\obj_fireball</object>
     </objects>
-    <object>objects\obj_wall</object>
     <object>objects\obj_sword</object>
-    <object>objects\obj_fireplace</object>
-    <object>objects\obj_bar</object>
-    <object>objects\obj_tavernwall</object>
-    <object>objects\obj_stool</object>
-    <object>objects\obj_table</object>
     <object>objects\obj_lighting</object>
-    <object>objects\obj_candle</object>
-    <object>objects\obj_crate</object>
-    <object>objects\obj_crateB</object>
-    <object>objects\obj_barrel</object>
-    <object>objects\obj_barrelB</object>
     <object>objects\obj_wizard</object>
     <object>objects\obj_testEnemy</object>
-    <object>objects\obj_book1</object>
     <object>objects\obj_controller</object>
+    <objects name="Menus">
+      <objects name="Registration">
+        <object>objects\object22</object>
+      </objects>
+    </objects>
+    <objects name="Fixed">
+      <object>objects\obj_wall</object>
+      <object>objects\obj_fireplace</object>
+      <object>objects\obj_bar</object>
+      <object>objects\obj_stool</object>
+      <object>objects\obj_candle</object>
+      <object>objects\obj_crate</object>
+      <object>objects\obj_crateB</object>
+      <object>objects\obj_barrel</object>
+      <object>objects\obj_table</object>
+      <object>objects\obj_book1</object>
+      <object>objects\obj_barrelB</object>
+      <object>objects\obj_tavernwall</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_register</room>
