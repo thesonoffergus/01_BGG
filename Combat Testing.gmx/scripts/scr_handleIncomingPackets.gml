@@ -12,7 +12,7 @@ switch(msgId){
         buffer_write(global.buffer, buffer_u32, time);
         network_send_packet(socket, global.buffer, buffer_tell(global.buffer));    
     
-        break;
+        break;       
 
     case 6:
         var pId = buffer_read(buffer, buffer_u32);
