@@ -10,7 +10,11 @@
   <bbox_left>5</bbox_left>
   <bbox_right>22</bbox_right>
   <bbox_top>8</bbox_top>
+<<<<<<< HEAD
   <bbox_bottom>28</bbox_bottom>
+=======
+  <bbox_bottom>31</bbox_bottom>
+>>>>>>> origin/master
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
