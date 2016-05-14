@@ -35,7 +35,8 @@ var bufferAlignment = 1;
 server = network_create_server(networkType, port, maxPlayers);
 global.buffer = buffer_create(bufferSize, bufferType, bufferAlignment);
 
-sockets = ds_list_create();
+global.players = ds_list_create();
+playerIdCounter = 0;
 </string>
           </argument>
         </arguments>
@@ -62,38 +63,67 @@ sockets = ds_list_create();
 
 switch(eventType)
 {
-
-    case network_type_connect:
-    
-    var socket = ds_map_find_value(async_load, "socket");
-    ds_list_add(sockets, socket);
-    
-    break;
-    
+    case network_type_connect:   
+        var socket = ds_map_find_value(async_load, "socket");
+        playerIdCounter += 1;
+        
+        //create the player
+        with (instance_create(0,0,obj_player)){
+            playerIdentifier = playerIdCounter;
+            playerName = "";
+            playerInGame = false;
+            playerSocket = socket;
+        }
+        ds_list_add(global.players, socket);
+        
+        //send player ID
+        buffer_seek(global.buffer, buffer_seek_start, 0);
+        buffer_write(global.buffer, buffer_u8, 4);
+        buffer_write(global.buffer, buffer_u32, playerIdCounter);
+        network_send_packet(socket, global.buffer, buffer_tell(global.buffer));
+        
+        break;
     
     case network_type_disconnect:
-    
-    var socket = ds_map_find_value(async_load, "socket");
-    var findSocket = ds_list_find_index(sockets, socket);
-    
-        if (findSocket &gt;= 0)
-        {
-        ds_list_delete(sockets, findSocket);
+        var socket = ds_map_find_value(async_load, "socket");
+        var index = ds_list_find_index(global.players, socket);
+        if(index != -1){
+            ds_list_delete(global.players, index);
         }
-    
-    break;
+        
+        //get some info about this player leaving
+        var playerLeavingId = 0;
+        with(obj_player){
+            if(playerSocket == socket){
+                playerLeavingId = playerIdentifier;
+            }
+        }
+        
+        //notify all players
+        for(var i = 0; i &lt; ds_list_size(global.players); i++){
+            var storedPlayerSocket = ds_list_find_value(global.players, i);
+            buffer_seek(global.buffer, buffer_seek_start, 0);
+            buffer_write(global.buffer, buffer_u8, 5);
+            buffer_write(global.buffer, buffer_u32, playerLeavingId);
+            network_send_packet(storedPlayerSocket, global.buffer, buffer_tell(global.buffer));
+        }
+        
+        with(obj_player){
+            if(playerIdentifier == playerLeavingId){
+                instance_destroy();
+            }
+        }
+        
+        break;
     
     
     case network_type_data:
-    
-    var buffer = ds_map_find_value(async_load, "buffer");
-    var socket = ds_map_find_value(async_load, "id");
-    buffer_seek(buffer, buffer_seek_start, 0);
-    
-    scr_handleIncomingPackets(buffer, socket);
-    
-    break;
-
+        var buffer = ds_map_find_value(async_load, "buffer");
+        var socket = ds_map_find_value(async_load, "id");
+        buffer_seek(buffer, buffer_seek_start, 0);
+        scr_handleIncomingPackets(buffer, socket);
+        
+        break;
 }
 </string>
           </argument>
@@ -119,7 +149,7 @@ switch(eventType)
             <kind>1</kind>
             <string>network_destroy(server);
 buffer_delete(global.buffer);
-ds_list_destroy(sockets);
+ds_list_destroy(global.players);
 
 </string>
           </argument>
@@ -145,7 +175,7 @@ ds_list_destroy(sockets);
             <kind>1</kind>
             <string>draw_set_color(c_white)
 draw_text(5, 5, "Server status: " + string(server &gt;= 0));
-draw_text(5, 20, "Total clients: " + string(ds_list_size(sockets)));
+draw_text(5, 20, "Total clients: " + string(ds_list_size(global.players)));
 
 </string>
           </argument>

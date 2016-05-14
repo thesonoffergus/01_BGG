@@ -87,10 +87,12 @@
       <object>objects\obj_barrelB</object>
       <object>objects\obj_tavernwall</object>
     </objects>
+    <object>objects\obj_remoteplayer</object>
+    <object>objects\obj_localpayer</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_register</room>
     <room>rooms\rm_tavern</room>
+    <room>rooms\rm_register</room>
     <room>rooms\rm_testgame</room>
     <room>rooms\rm_test_enemyAI</room>
   </rooms>
