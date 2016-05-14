@@ -7,9 +7,9 @@ switch(msgId){
         latency = current_time - time;
         break;
     
-   // case 4:
-   //     global.playerId = buffer_read(buffer, buffer_u32);
-    //    break;
+    case 4:
+        global.playerId = buffer_read(buffer, buffer_u32);
+        break;
         
     case 5:
         var pId = buffer_read(buffer, buffer_u32);
